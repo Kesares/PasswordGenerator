@@ -1,8 +1,5 @@
 package kesares.password;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public enum CharacterSet {
 
     UPPER_CASE_CHARACTERS("ABCDEFGHIJKLMNOPQRSTUVWXYZ"),

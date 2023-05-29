@@ -4,7 +4,6 @@ import kesares.core.PasswordGenerator;
 import kesares.password.CharacterSetOptions;
 import kesares.password.Password;
 import kesares.password.PasswordProperties;
-import kesares.util.Adjust;
 import kesares.util.Parser;
 
 import javax.swing.*;
@@ -84,12 +83,14 @@ public class Panel extends JPanel {
             this.upperCaseCheckBox.isSelected(),
             this.lowerCaseCheckBox.isSelected(),
             this.numericsCheckBox.isSelected(),
-            this.specialCharsCheckBox.isSelected());
+            this.specialCharsCheckBox.isSelected()
+        );
     }
 
     private void addPasswordsToTextArea(Password[] passwords) {
         for (Password password : passwords) {
-            this.textArea.append(password.getPassword() + "\r\n");
+            this.textArea.append(password.getPassword());
+            this.textArea.append("\r\n");
         }
     }
 
