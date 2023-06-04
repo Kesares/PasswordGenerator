@@ -11,7 +11,6 @@ public class Display {
     public Display(int width, int height) {
         JFrame frame = new JFrame("Password Generator " + Config.VERSION);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //frame.setIconImage(null);
         frame.setResizable(true);
         frame.add(new Panel(width, height));
         frame.pack();
