@@ -9,8 +9,8 @@ public class Password {
     private final String password;
 
     public Password(PasswordProperties properties) {
-        this.length = properties.getPasswordLength();
-        this.characterSetOptions = properties.getCharacterSetOptions();
+        this.length = properties.passwordLength();
+        this.characterSetOptions = properties.characterSetOptions();
         this.password = this.generatePassword();
     }
 

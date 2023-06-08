@@ -20,7 +20,7 @@ public class PasswordGenerator {
     public Password[] generatePasswords(PasswordProperties passwordProperties) {
         if (!passwordProperties.isRequirementsMet()) return new Password[0];
 
-        Password[] passwords = new Password[passwordProperties.getNumberOfPasswords()];
+        Password[] passwords = new Password[passwordProperties.numberOfPasswords()];
         for (int i = 0; i < passwords.length; i++) {
             passwords[i] = new Password(passwordProperties);
         }
