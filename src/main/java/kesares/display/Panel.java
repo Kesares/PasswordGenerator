@@ -1,5 +1,6 @@
 package kesares.display;
 
+import kesares.config.Config;
 import kesares.core.PasswordGenerator;
 import kesares.password.CharacterSetOptions;
 import kesares.password.Password;
@@ -31,18 +32,18 @@ public class Panel extends JPanel {
         this.setBackground(Color.GRAY);
         this.setPreferredSize(new Dimension(width, height));
 
-        this.label = ComponentFactory.createLabel("Password Generator", "Arial", Font.BOLD, 30);
+        this.label = ComponentFactory.createLabel("Password Generator", Config.FONT, Font.BOLD, Config.LABEL_TITLE_FONT_SIZE);
         this.textArea = new JTextArea();
-        this.scrollPane = ComponentFactory.createScrollPane(this.textArea, new Dimension(400, 300));
+        this.scrollPane = ComponentFactory.createScrollPane(this.textArea, new Dimension(Config.TEXT_AREA_WIDTH, Config.TEXT_AREA_HEIGHT));
         this.upperCaseCheckBox = ComponentFactory.createCheckbox("Uppercase");
         this.lowerCaseCheckBox = ComponentFactory.createCheckbox("Lowercase");
         this.numericsCheckBox = ComponentFactory.createCheckbox("Numerics");
         this.specialCharsCheckBox = ComponentFactory.createCheckbox("Special Characters");
-        this.numberOfPasswordsLabel = ComponentFactory.createLabel("Number of Passwords:", "Arial", Font.PLAIN, 12);
-        this.passwordLengthLabel = ComponentFactory.createLabel("Password Length:", "Arial", Font.PLAIN, 12);
-        this.numberOfPasswordsTextField = ComponentFactory.createTextField("1", new Dimension(60, 20));
-        this.passwordLengthTextField = ComponentFactory.createTextField("20", new Dimension(60, 20));
-        this.button = ComponentFactory.createButton("Generate", new Dimension(150, 30));
+        this.numberOfPasswordsLabel = ComponentFactory.createLabel("Number of Passwords:", Config.FONT, Font.PLAIN, Config.LABEL_FONT_SIZE);
+        this.passwordLengthLabel = ComponentFactory.createLabel("Password Length:", Config.FONT, Font.PLAIN, Config.LABEL_FONT_SIZE);
+        this.numberOfPasswordsTextField = ComponentFactory.createTextField("1", new Dimension(Config.TEXT_FIELD_WIDTH, Config.TEXT_FIELD_HEIGHT));
+        this.passwordLengthTextField = ComponentFactory.createTextField("20", new Dimension(Config.TEXT_FIELD_WIDTH, Config.TEXT_FIELD_HEIGHT));
+        this.button = ComponentFactory.createButton("Generate", new Dimension(Config.BUTTON_WIDTH, Config.BUTTON_HEIGHT));
         this.button.addActionListener(new EventHandler());
         this.addComponents();
     }
