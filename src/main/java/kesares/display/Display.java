@@ -1,7 +1,7 @@
 package kesares.display;
 
 import kesares.config.Config;
-import kesares.display.components.BMSComponents;
+import kesares.display.components.UIComponents;
 
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
@@ -16,7 +16,7 @@ public class Display {
         frame.add(new Panel(width, height));
         frame.pack();
         frame.setLocationRelativeTo(null);
-        frame.setJMenuBar(BMSComponents.MENU_BAR);
+        frame.setJMenuBar(UIComponents.MENU_BAR);
         frame.addWindowListener(new WindowAdapter() {
 
             @Override

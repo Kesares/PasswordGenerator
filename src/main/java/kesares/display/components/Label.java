@@ -1,5 +1,7 @@
 package kesares.display.components;
 
+import kesares.config.Config;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -7,6 +9,7 @@ public class Label extends JLabel {
 
     public Label(Factory factory) {
         this.setText(factory.text);
+        this.setForeground(factory.color);
         this.setFont(
             new Font(
                 factory.font,
@@ -18,17 +21,13 @@ public class Label extends JLabel {
     public static class Factory {
 
         private String text;
+        private final Color color = Config.LABEL_COLOR;
         private String font = "Arial";
-        private int fontStyle;
-        private int fontSize;
+        private int fontStyle = Font.PLAIN;
+        private int fontSize = 12;
 
         public Factory text(String text) {
             this.text = text;
-            return this;
-        }
-
-        public Factory font(String font) {
-            this.font = font;
             return this;
         }
 
