@@ -22,7 +22,7 @@ public class Label extends JLabel {
 
         private String text;
         private final Color color = Config.LABEL_COLOR;
-        private String font = "Arial";
+        private final String font = "Arial";
         private int fontStyle = Font.PLAIN;
         private int fontSize = 12;
 
