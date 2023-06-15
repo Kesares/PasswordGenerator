@@ -5,18 +5,18 @@ import javax.swing.*;
 public class MenuBar extends JMenuBar {
 
     public MenuBar(Factory factory) {
-        for (String title : factory.titles) {
-            this.add(new JMenu(title));
+        for (Menu menu : factory.menus) {
+            this.add(menu);
         }
     }
 
     public static class Factory {
 
-        private String[] titles;
+        private Menu[] menus;
 
-        public Factory titles(String... titles) {
-            if (titles.length == 0) throw new IllegalArgumentException("Menu bar must have at least one submenu");
-            this.titles = titles;
+        public Factory menu(Menu... menus) {
+            if (menus.length == 0) throw new IllegalArgumentException("Menus must at least ");
+            this.menus = menus;
             return this;
         }
 

@@ -7,11 +7,14 @@ import kesares.password.CharacterSetOptions;
 import kesares.password.Password;
 import kesares.password.PasswordProperties;
 import kesares.util.Parser;
+import kesares.util.ResourceBundleLibrary;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class Panel extends JPanel {
 
@@ -19,8 +22,31 @@ public class Panel extends JPanel {
         this.setLayout(new FlowLayout());
         this.setBackground(Config.PANEL_BACKGROUND_COLOR);
         this.setPreferredSize(new Dimension(width, height));
+        this.setLanguageResources(Locale.ENGLISH);
         this.addComponents();
-        UIComponents.GENERATE_BUTTON.addActionListener(new EventHandler());
+        this.addActionListeners();
+    }
+
+    private void setLanguageResources(Locale locale) {
+        ResourceBundleLibrary bundleLibrary = ResourceBundleLibrary.getInstance();
+        bundleLibrary.loadResourceBundles(locale);
+        ResourceBundle bundle = bundleLibrary.getResourceBundle("display");
+
+        UIComponents.TITLE_LABEL.setText(bundle.getString("title"));
+        UIComponents.NUMBER_OF_PASSOWRDS_LABEL.setText(bundle.getString("numberOfPasswords"));
+        UIComponents.PASSWORD_LENGTH_LABEL.setText(bundle.getString("passwordLength"));
+        UIComponents.UPPER_CASE_CHECK_BOX.setText(bundle.getString("upperCase"));
+        UIComponents.LOWER_CASE_CHECK_BOX.setText(bundle.getString("lowerCase"));
+        UIComponents.NUMERICS_CHECK_BOX.setText(bundle.getString("numerics"));
+        UIComponents.SPECIAL_CHARACTERS_CHECK_BOX.setText(bundle.getString("specialChars"));
+        UIComponents.GENERATE_BUTTON.setText(bundle.getString("generate"));
+        UIComponents.FILE_MENU.setText(bundle.getString("file"));
+        UIComponents.SETTINGS_MENU.setText(bundle.getString("settings"));
+        UIComponents.LANGUAGE_MENU.setText(bundle.getString("language"));
+        UIComponents.ENGLISH_MENU_ITEM.setText(bundle.getString("en"));
+        UIComponents.GERMAN_MENU_ITEM.setText(bundle.getString("de"));
+        UIComponents.SAVE_MENU_ITEM.setText(bundle.getString("save"));
+        UIComponents.HELP_MENU_ITEM.setText(bundle.getString("help"));
     }
 
     private void addComponents() {
@@ -35,6 +61,13 @@ public class Panel extends JPanel {
         this.add(UIComponents.PASSWORD_LENGTH_LABEL);
         this.add(UIComponents.PASSWORD_LENGTH_TEXT_FIELD);
         this.add(UIComponents.GENERATE_BUTTON);
+    }
+
+    private void addActionListeners() {
+        EventHandler handler = new EventHandler();
+        UIComponents.GENERATE_BUTTON.addActionListener(handler);
+        UIComponents.ENGLISH_MENU_ITEM.addActionListener(handler);
+        UIComponents.GERMAN_MENU_ITEM.addActionListener(handler);
     }
 
     private void preparePasswordGeneration() {
@@ -74,7 +107,17 @@ public class Panel extends JPanel {
 
         @Override
         public void actionPerformed(ActionEvent event) {
-            preparePasswordGeneration();
+            if (event.getSource() == UIComponents.GENERATE_BUTTON) {
+                preparePasswordGeneration();
+            } else if (event.getSource() == UIComponents.ENGLISH_MENU_ITEM) {
+                setLanguageResources(Locale.ENGLISH);
+            } else if (event.getSource() == UIComponents.GERMAN_MENU_ITEM) {
+                setLanguageResources(Locale.GERMAN);
+            } else if (event.getSource() == UIComponents.SAVE_MENU_ITEM) {
+                System.out.println(event.getSource());
+            } else if (event.getSource() == UIComponents.HELP_MENU_ITEM) {
+                System.out.println(event.getSource());
+            }
         }
     }
 }
