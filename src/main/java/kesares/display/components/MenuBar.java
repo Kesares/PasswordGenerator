@@ -15,7 +15,7 @@ public class MenuBar extends JMenuBar {
         private Menu[] menus;
 
         public Factory menu(Menu... menus) {
-            if (menus.length == 0) throw new IllegalArgumentException("Menus must at least ");
+            if (menus.length == 0) throw new IllegalArgumentException("'menus' must contains at least one");
             this.menus = menus;
             return this;
         }

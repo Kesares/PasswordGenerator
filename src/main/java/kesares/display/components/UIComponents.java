@@ -1,5 +1,6 @@
 package kesares.display.components;
 
+import javax.swing.*;
 import java.awt.*;
 
 public final class UIComponents {
@@ -21,10 +22,10 @@ public final class UIComponents {
 
     public static final Button GENERATE_BUTTON = new Button.Factory().dimension(new Dimension(120, 25)).create();
 
-    public static final MenuItem ENGLISH_MENU_ITEM = new MenuItem.Factory().create();
-    public static final MenuItem GERMAN_MENU_ITEM = new MenuItem.Factory().create();
-    public static final MenuItem SAVE_MENU_ITEM = new MenuItem.Factory().create();
-    public static final MenuItem HELP_MENU_ITEM = new MenuItem.Factory().create();
+    public static final JMenuItem ENGLISH_MENU_ITEM = new JMenuItem();
+    public static final JMenuItem GERMAN_MENU_ITEM = new JMenuItem();
+    public static final JMenuItem SAVE_MENU_ITEM = new JMenuItem();
+    public static final JMenuItem HELP_MENU_ITEM = new JMenuItem();
 
     public static final Menu FILE_MENU = new Menu.Factory().menuItems(SAVE_MENU_ITEM).create();
     public static final Menu SETTINGS_MENU = new Menu.Factory().menuItems(HELP_MENU_ITEM).create();
