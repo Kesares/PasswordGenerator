@@ -13,6 +13,6 @@
 Java desktop application to generate random passwords with uppercase and lowercase letters, numbers and special characters.
 
 
-> [!question] Can callouts be nested?
-> > [!todo] Yes!, they can.
-> > > [!example]  You can even use multiple layers of nesting.
+[!question] Can callouts be nested?
+[!todo] Yes!, they can.
+[!example]  You can even use multiple layers of nesting.
