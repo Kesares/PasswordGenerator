@@ -4,23 +4,23 @@ import javax.swing.*;
 
 public class MenuBar extends JMenuBar {
 
-    public MenuBar(Factory factory) {
-        for (Menu menu : factory.menus) {
+    public MenuBar(Builder builder) {
+        for (Menu menu : builder.menus) {
             this.add(menu);
         }
     }
 
-    public static class Factory {
+    public static class Builder {
 
         private Menu[] menus;
 
-        public Factory menu(Menu... menus) {
+        public Builder menu(Menu... menus) {
             if (menus.length == 0) throw new IllegalArgumentException("Menus must contain at least one");
             this.menus = menus;
             return this;
         }
 
-        public MenuBar create() {
+        public MenuBar build() {
             return new MenuBar(this);
         }
     }

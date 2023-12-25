@@ -7,17 +7,17 @@ import java.awt.*;
 
 public class TextArea extends JTextArea {
 
-    public TextArea(Factory factory) {
-        this.setBackground(factory.backgroundColor);
-        this.setForeground(factory.foregroundColor);
+    public TextArea(Builder builder) {
+        this.setBackground(builder.backgroundColor);
+        this.setForeground(builder.foregroundColor);
     }
 
-    public static class Factory {
+    public static class Builder {
 
         private final Color backgroundColor = Config.TEXT_AREA_BACKGROUND_COLOR;
         private final Color foregroundColor = Config.TEXT_AREA_FOREGRUND_COLOR;
 
-        public TextArea create() {
+        public TextArea build() {
             return new TextArea(this);
         }
     }

@@ -7,18 +7,18 @@ import java.awt.*;
 
 public class Label extends JLabel {
 
-    public Label(Factory factory) {
-        this.setText(factory.text);
-        this.setForeground(factory.color);
+    public Label(Builder builder) {
+        this.setText(builder.text);
+        this.setForeground(builder.color);
         this.setFont(
             new Font(
-                factory.font,
-                factory.fontStyle,
-                factory.fontSize)
+                builder.font,
+                builder.fontStyle,
+                builder.fontSize)
         );
     }
 
-    public static class Factory {
+    public static class Builder {
 
         private String text;
         private final Color color = Config.LABEL_COLOR;
@@ -26,22 +26,22 @@ public class Label extends JLabel {
         private int fontStyle = Font.PLAIN;
         private int fontSize = 12;
 
-        public Factory text(String text) {
+        public Builder text(String text) {
             this.text = text;
             return this;
         }
 
-        public Factory fontStyle(int fontStyle) {
+        public Builder fontStyle(int fontStyle) {
             this.fontStyle = fontStyle;
             return this;
         }
 
-        public Factory fontSize(int fontSize) {
+        public Builder fontSize(int fontSize) {
             this.fontSize = fontSize;
             return this;
         }
 
-        public Label create() {
+        public Label build() {
             return new Label(this);
         }
     }

@@ -5,28 +5,28 @@ import java.awt.*;
 
 public class ScrollPane extends JScrollPane {
 
-    public ScrollPane(Factory factory) {
-        super(factory.textArea);
-        this.setPreferredSize(factory.dimension);
-        this.setViewportView(factory.textArea);
+    public ScrollPane(Builder builder) {
+        super(builder.textArea);
+        this.setPreferredSize(builder.dimension);
+        this.setViewportView(builder.textArea);
     }
 
-    public static class Factory {
+    public static class Builder {
 
         private JTextArea textArea;
         private Dimension dimension;
 
-        public Factory textArea(JTextArea textArea) {
+        public Builder textArea(JTextArea textArea) {
             this.textArea = textArea;
             return this;
         }
 
-        public Factory dimension(Dimension dimension) {
+        public Builder dimension(Dimension dimension) {
             this.dimension = dimension;
             return this;
         }
 
-        public ScrollPane create() {
+        public ScrollPane build() {
             return new ScrollPane(this);
         }
     }
