@@ -18,6 +18,7 @@ public final class Config {
 
     public static final Color TEXT_AREA_BACKGROUND_COLOR = BUTTON_BACKGROUND_COLOR;
     public static final Color TEXT_AREA_FOREGRUND_COLOR = BUTTON_FOREGROUND_COLOR;
+    public static final Font TEXT_AREA_FONT = new Font("Dialog", Font.PLAIN, 20);
 
     public static final Color TEXT_FIELD_BACKGROUND_COLOR = BUTTON_BACKGROUND_COLOR;
     public static final Color TEXT_FIELD_FOREGROUND_COLOR = BUTTON_FOREGROUND_COLOR;
