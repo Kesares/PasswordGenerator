@@ -7,6 +7,8 @@ import java.util.ResourceBundle;
 
 public class ResourceBundleLibrary {
 
+    public static final String DISPLAY_BUNDLE = "display";
+
     private static final ResourceBundleLibrary INSTANCE = new ResourceBundleLibrary();
 
     private final Map<String, ResourceBundle> resourceBundles;
@@ -22,7 +24,7 @@ public class ResourceBundleLibrary {
 
     public void loadResourceBundles(Locale locale) {
         Locale.setDefault(locale);
-        this.resourceBundles.put("display", ResourceBundle.getBundle("lang.Display"));
+        this.resourceBundles.put(DISPLAY_BUNDLE, ResourceBundle.getBundle("lang.Display"));
     }
 
     public ResourceBundle getResourceBundle(String key) {

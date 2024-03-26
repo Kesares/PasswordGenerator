@@ -30,7 +30,7 @@ public class Panel extends JPanel {
     private void setLanguageResources(Locale locale) {
         ResourceBundleLibrary bundleLibrary = ResourceBundleLibrary.getInstance();
         bundleLibrary.loadResourceBundles(locale);
-        ResourceBundle bundle = bundleLibrary.getResourceBundle("display");
+        ResourceBundle bundle = bundleLibrary.getResourceBundle(ResourceBundleLibrary.DISPLAY_BUNDLE);
 
         UIComponents.TITLE_LABEL.setText(bundle.getString("title"));
         UIComponents.NUMBER_OF_PASSOWRDS_LABEL.setText(bundle.getString("numberOfPasswords"));
